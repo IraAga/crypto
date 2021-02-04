@@ -1,4 +1,4 @@
-#include"hy457_crypto.h"
+#include"crypto.h"
 
 /* print key in bytes/chars/ints */
 void
