@@ -136,7 +136,6 @@ otp_decrypt(uint8_t *ciphertext, uint8_t *key)
 	return plaintext;
 }
 
-
 /* --- Caesar's Cipher --- */
 char letters[62] = { 
 	'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -248,13 +247,8 @@ spartan_encrypt(uint8_t *plaintext, int circ)
 		exit(1);
 	}
 
-	// Before we allocate the columns we have to know
-	// if the col number we found is enough for the 2d array
-	// to contain the whole plaintext
 	int vrf_size = col * circ;
 	if (vrf_size < len_pl) {
-		// if its not | de xwraei
-		// allocate ++col columns 
 		col++;
 	}
 	ciphertext = malloc(col*circ);
@@ -290,11 +284,9 @@ spartan_encrypt(uint8_t *plaintext, int circ)
 	save = 0;
 	for(i = 0; i < circ; i++) {
 		for (j = 0; j < col; j++) {
-			// printf("%c ", table[i][j]);
 				if ((table[i][j] != '#') || (table[i][j] == '\0'))
 					ciphertext[save++] = table[i][j];
 		}
-		// printf("\n");
 	}
 
 	// padding
